@@ -1,12 +1,12 @@
 require "nvchad.options"
 
 -- add yours here!
-vim.opt.mouse=''
+vim.opt.mouse = ""
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   once = true,
   callback = function()
-    if vim.fn.has("win32") == 1 or vim.fn.has("wsl") == 1 then
+    if vim.fn.has "win32" == 1 or vim.fn.has "wsl" == 1 then
       vim.g.clipboard = {
         copy = {
           ["+"] = "win32yank.exe -i --crlf",
@@ -17,8 +17,8 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
           ["*"] = "win32yank.exe -o --lf",
         },
       }
-    elseif vim.fn.has("unix") == 1 then
-      if vim.fn.executable("xclip") == 1 then
+    elseif vim.fn.has "unix" == 1 then
+      if vim.fn.executable "xclip" == 1 then
         vim.g.clipboard = {
           copy = {
             ["+"] = "xclip -selection clipboard",
@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
             ["*"] = "xclip -selection clipboard -o",
           },
         }
-      elseif vim.fn.executable("xsel") == 1 then
+      elseif vim.fn.executable "xsel" == 1 then
         vim.g.clipboard = {
           copy = {
             ["+"] = "xsel --clipboard --input",
@@ -47,5 +47,16 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   end,
   desc = "Lazy load clipboard",
 })
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+
+-- go.nvim opts
+local format_sync_grp = vim.api.nvim_create_augroup("goimports", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    require("go.format").goimports()
+  end,
+  group = format_sync_grp,
+})
+
+local o = vim.o
+o.cursorlineopt = "both" -- to enable cursorline!
