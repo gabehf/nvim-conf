@@ -3,6 +3,10 @@ require "nvchad.options"
 -- add yours here!
 vim.opt.mouse = ""
 
+-- tabsize
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   once = true,
   callback = function()
