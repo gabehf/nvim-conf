@@ -7,6 +7,7 @@ vim.opt.mouse = ""
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
+-- optimization for WSL
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   once = true,
   callback = function()
@@ -64,3 +65,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 local o = vim.o
 o.cursorlineopt = "both" -- to enable cursorline!
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank { timeout = 500 }
+  end,
+})
+
+-- require("nvim-tree").setup(require "configs.nvimtree")
