@@ -4,8 +4,8 @@ require "nvchad.options"
 vim.opt.mouse = ""
 
 -- tabsize
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.tabstop = 4
 
 -- optimization for WSL
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
