@@ -3,7 +3,6 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
-
 -- disable arrow keys
 map("n", "<Up>", "<nop>")
 map("n", "<Down>", "<nop>")
@@ -18,3 +17,13 @@ map("n", "<Leader>sd", ":s/", { desc = "Shortcut to sed" })
 map("n", "<Leader>qq", ":qa<CR>", { desc = "Write all and quit all" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+map("n", "<Leader>tt", ":TodoTelescope<CR>", { desc = "View [T]odos in [T]elescope" })
+-- map("n", "<Leader>tT", ":TodoTrouble<CR>", { desc = "View [t]odos in [T]rouble" })
