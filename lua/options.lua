@@ -1,7 +1,8 @@
 require "nvchad.options"
 
 -- add yours here!
-vim.opt.mouse = ""
+vim.o.mouse = "nv"
+vim.o.mousemodel = "extend"
 
 -- tabsize
 -- vim.opt.shiftwidth = 4

@@ -35,19 +35,14 @@ M.ui = {
       { "  Mappings", "Spc c h", "NvCheatsheet" },
     },
   },
+  telescope = {
+    style = "bordered",
+  },
 }
-
--- M.plugins = {
---   default_plugin_config_replace = {
---     nvim_tree = {
---       renderer = {
---         icons = {
---           git = {
---             unstaged = "❖",
---           },
---         },
---       },
---     },
+-- M.lspoveride = {
+--   n = {
+--     ["gd"] = { "<cmd> Telescope <CR>", "definitions" },
+--     ["gr"] = { "<cmd> Telescope <CR>", "references" },
 --   },
 -- }
 

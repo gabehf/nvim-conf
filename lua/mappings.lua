@@ -27,3 +27,5 @@ end, { desc = "Previous todo comment" })
 
 map("n", "<Leader>tt", ":TodoTelescope<CR>", { desc = "View [T]odos in [T]elescope" })
 -- map("n", "<Leader>tT", ":TodoTrouble<CR>", { desc = "View [t]odos in [T]rouble" })
+
+-- map("n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "[G]oto [R]eferences" })
