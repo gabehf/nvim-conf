@@ -5,10 +5,7 @@
 local M = {}
 
 M.ui = {
-  theme = "chadracula",
-  changed_themes = {
-    chadracula = require "themes.your-pop-star",
-  },
+  theme = "your-pop-star",
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
