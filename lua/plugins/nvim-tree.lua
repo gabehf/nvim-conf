@@ -1,6 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   opts = {
+    git = { ignore = false },
     renderer = {
       icons = {
         glyphs = {

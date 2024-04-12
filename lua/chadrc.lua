@@ -5,8 +5,10 @@
 local M = {}
 
 M.ui = {
-  theme = "gatekeeper",
-
+  theme = "chadracula",
+  changed_themes = {
+    chadracula = require "themes.your-pop-star",
+  },
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
@@ -39,11 +41,5 @@ M.ui = {
     style = "bordered",
   },
 }
--- M.lspoveride = {
---   n = {
---     ["gd"] = { "<cmd> Telescope <CR>", "definitions" },
---     ["gr"] = { "<cmd> Telescope <CR>", "references" },
---   },
--- }
 
 return M
