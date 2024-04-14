@@ -1,39 +1,45 @@
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
+-- nvchad ui stuff
+vim.g.base46_cache = vim.fn.stdpath('data') .. '/base46_cache/'
+
 vim.g.mapleader = " "
+vim.keymap.set({'n', 'v'}, "<Left>", "")
+vim.keymap.set({'n', 'v'}, "<Down>", "")
+vim.keymap.set({'n', 'v'}, "<Up>", "")
+vim.keymap.set({'n', 'v'}, "<Right>", "")
 
--- bootstrap lazy and all plugins
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({ import = "plugins" })
 
-if not vim.loop.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+-- more nvchad ui stuff
+-- dofile(vim.g.base46_cache .. "defaults")
+-- dofile(vim.g.base46_cache .. "syntax")
+-- dofile(vim.g.base46_cache .. "treesitter")
+-- dofile(vim.g.base46_cache .. "git")
+-- dofile(vim.g.base46_cache .. "nvimtree")
+
+-- or if you want to load all base46 integrations at startup itself
+local integrations = require("nvconfig").base46.integrations
+
+for _, name in ipairs(integrations) do
+  dofile(vim.g.base46_cache .. name)
 end
 
-vim.opt.rtp:prepend(lazypath)
-
-local lazy_config = require "configs.lazy"
-
--- load plugins
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-    config = function()
-      require "options"
-    end,
-  },
-
-  { import = "plugins" },
-}, lazy_config)
-
--- load theme
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
-
-require "nvchad.autocmds"
-
-vim.schedule(function()
-  require "mappings"
-end)
+vim.o.number = true
+-- require("nvim-tree.api").tree.open() -- open tree on start
+require "options"
+require "remaps"
