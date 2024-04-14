@@ -5,8 +5,8 @@ M.ui = {
   -- hl = highlights
   hl_add = {},
   hl_override = {
-	Comment = { italic = true },
-	['@comment'] = { italic = true },
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
   },
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
@@ -48,7 +48,8 @@ M.ui = {
       [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
       [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
       [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
-      [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],   },
+      [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
+    },
 
     buttons = {
       { "  Find File", "Spc f f", "Telescope find_files" },
@@ -80,19 +81,19 @@ M.ui = {
 
 M.base46 = {
   integrations = {
-	"nvimtree",
-	"treesitter",
-	"blankline",
-	"git",
-	"lsp",
-	"nvdash",
-	"syntax",
-	"statusline",
-	"tbline",
-	"telescope",
-	"devicons",
-	"mason",
-	"defaults",
+    "nvimtree",
+    "treesitter",
+    "blankline",
+    "git",
+    "lsp",
+    "nvdash",
+    "syntax",
+    "statusline",
+    "tbline",
+    "telescope",
+    "devicons",
+    "mason",
+    "defaults",
   },
 }
 

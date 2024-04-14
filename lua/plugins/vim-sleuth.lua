@@ -1,0 +1,3 @@
+return {
+  "timpope/vim-sleuth",
+}
