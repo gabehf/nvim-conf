@@ -16,6 +16,8 @@ map("n", "<leader>pg", builtin.live_grep, { desc = "[p]roject [g]rep" })
 map("n", "<leader>fb", builtin.buffers, { desc = "[f]ind [b]uffer" })
 map("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp" })
 map("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "[f]ile [g]rep" })
+map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git commits" })
+map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
 
 -- base46 maps
 map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "[th]emes" })

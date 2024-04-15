@@ -23,10 +23,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup { import = "plugins" }
+local lazy_config = require "configs.lazy"
+require("lazy").setup({ import = "plugins" }, lazy_config)
 
 -- more nvchad ui stuff
 -- dofile(vim.g.base46_cache .. "defaults")
+-- dofile(vim.g.base46_cache .. "statusline")
 -- dofile(vim.g.base46_cache .. "syntax")
 -- dofile(vim.g.base46_cache .. "treesitter")
 -- dofile(vim.g.base46_cache .. "git")
@@ -41,5 +43,7 @@ end
 
 vim.o.number = true
 -- require("nvim-tree.api").tree.open() -- open tree on start
-require "options"
-require "remaps"
+-- vim.schedule(function()
+	require "options"
+	require "remaps"
+-- end)

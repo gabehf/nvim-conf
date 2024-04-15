@@ -1,53 +1,63 @@
-vim.o.mouse = "nv"
-vim.o.mousemodel = "extend"
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
 
--- optimization for WSL
--- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
---   once = true,
---   callback = function()
---     if vim.fn.has "win32" == 1 or vim.fn.has "wsl" == 1 then
---       vim.g.clipboard = {
---         copy = {
---           ["+"] = "win32yank.exe -i --crlf",
---           ["*"] = "win32yank.exe -i --crlf",
---         },
---         paste = {
---           ["+"] = "win32yank.exe -o --lf",
---           ["*"] = "win32yank.exe -o --lf",
---         },
---       }
---     elseif vim.fn.has "unix" == 1 then
---       if vim.fn.executable "xclip" == 1 then
---         vim.g.clipboard = {
---           copy = {
---             ["+"] = "xclip -selection clipboard",
---             ["*"] = "xclip -selection clipboard",
---           },
---           paste = {
---             ["+"] = "xclip -selection clipboard -o",
---             ["*"] = "xclip -selection clipboard -o",
---           },
---         }
---       elseif vim.fn.executable "xsel" == 1 then
---         vim.g.clipboard = {
---           copy = {
---             ["+"] = "xsel --clipboard --input",
---             ["*"] = "xsel --clipboard --input",
---           },
---           paste = {
---             ["+"] = "xsel --clipboard --output",
---             ["*"] = "xsel --clipboard --output",
---           },
---         }
---       end
---     end
---    vim.opt.clipboard = "unnamedplus"
---  end,
---  desc = "Lazy load clipboard",
---})
+-------------------------------------- globals -----------------------------------------
+g.toggle_theme_icon = "   "
 
--- enable cursor line
-vim.o.cursorlineopt = "both"
+-------------------------------------- options ------------------------------------------
+o.laststatus = 3
+o.showmode = false
+
+o.clipboard = "unnamedplus"
+o.cursorline = true
+o.cursorlineopt = "number"
+
+-- Indenting
+o.expandtab = true
+o.shiftwidth = 2
+o.smartindent = true
+o.tabstop = 2
+o.softtabstop = 2
+
+opt.fillchars = { eob = " " }
+o.ignorecase = true
+o.smartcase = true
+o.mouse = "nv"
+o.mousemodel = "extend"
+
+-- Numbers
+o.number = true
+o.numberwidth = 2
+o.ruler = false
+
+-- disable nvim intro
+opt.shortmess:append "sI"
+
+o.signcolumn = "yes"
+o.splitbelow = true
+o.splitright = true
+o.timeoutlen = 400
+o.undofile = true
+
+-- interval for writing swap file to disk, also used by gitsigns
+o.updatetime = 250
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+opt.whichwrap:append "<>[]hl"
+
+-- g.mapleader = " "
+
+-- disable some default providers
+vim.g["loaded_node_provider"] = 0
+vim.g["loaded_python3_provider"] = 0
+vim.g["loaded_perl_provider"] = 0
+vim.g["loaded_ruby_provider"] = 0
+
+-- add binaries installed by mason.nvim to path
+local is_windows = vim.fn.has "win32" ~= 0
+vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {

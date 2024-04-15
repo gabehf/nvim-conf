@@ -12,7 +12,6 @@ return {
     formatters_by_ft = {
       bash = { "shfmt" },
       sh = { "shfmt" },
-      fish = { "fish_indent" },
       lua = { "stylua" },
       go = { "goimports", "gofumpt", "goimports-reviser" },
       javascript = { { "prettierd", "prettier" } },
