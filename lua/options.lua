@@ -6,12 +6,12 @@ local g = vim.g
 g.toggle_theme_icon = "   "
 
 -------------------------------------- options ------------------------------------------
-o.laststatus = 3
+o.laststatus = 3 -- this line is necessary otherwise statusline breaks
 o.showmode = false
 
 o.clipboard = "unnamedplus"
 o.cursorline = true
-o.cursorlineopt = "number"
+-- o.cursorlineopt = "number"
 
 -- Indenting
 o.expandtab = true
@@ -29,7 +29,7 @@ o.mousemodel = "extend"
 -- Numbers
 o.number = true
 o.numberwidth = 2
-o.ruler = false
+o.ruler = true
 
 -- disable nvim intro
 opt.shortmess:append "sI"
