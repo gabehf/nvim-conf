@@ -1,3 +1,3 @@
 return {
-  "timpope/vim-sleuth",
+  "tpope/vim-sleuth",
 }

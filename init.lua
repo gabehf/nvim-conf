@@ -24,7 +24,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 local lazy_config = require "configs.lazy"
-require("lazy").setup({ import = "plugins" }, lazy_config)
+-- TODO: investigate why using lazy_config here causes lsp to break
+require("lazy").setup { import = "plugins" }
 
 -- more nvchad ui stuff
 -- dofile(vim.g.base46_cache .. "defaults")
@@ -44,6 +45,6 @@ end
 vim.o.number = true
 -- require("nvim-tree.api").tree.open() -- open tree on start
 -- vim.schedule(function()
-	require "options"
-	require "remaps"
+require "options"
+require "remaps"
 -- end)
