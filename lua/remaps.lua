@@ -13,6 +13,7 @@ map("i", "jk", "<Esc>")
 -- telescope keybinds
 local builtin = require "telescope.builtin"
 map("n", "<leader>ff", builtin.find_files, { desc = "[f]ind [f]ile" })
+map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "[f]ind [r]ecent file" })
 map("n", "<leader>pg", builtin.live_grep, { desc = "[p]roject [g]rep" })
 map("n", "<leader>fb", builtin.buffers, { desc = "[f]ind [b]uffer" })
 map("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp" })

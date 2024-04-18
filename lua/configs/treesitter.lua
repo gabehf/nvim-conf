@@ -17,9 +17,9 @@ return {
     "astro",
     "bash",
   },
-  highlight = {
-    enable = true,
-    use_languagetree = true,
-  },
+  -- highlight = {
+  --   enable = true,
+  --   use_languagetree = true,
+  -- },
   indent = { { enable = true } },
 }

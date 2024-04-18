@@ -28,7 +28,7 @@ M.ui = {
     -- round and block will work for minimal theme only
     separator_style = "default",
     order = nil,
-    modules = nil,
+    modules = { "git" },
   },
 
   tabufline = {
@@ -52,11 +52,11 @@ M.ui = {
 
     buttons = {
       { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
+      { "󰈚  Recent Files", "Spc f r", "Telescope oldfiles" },
+      { "󰈭  Find Word", "Spc p g", "Telescope live_grep" },
+      -- { "  Bookmarks", "Spc m a", "Telescope marks" },
       { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
+      -- { "  Mappings", "Spc c h", "NvCheatsheet" },
     },
   },
 
@@ -64,18 +64,18 @@ M.ui = {
 
   lsp = { signature = true },
 
-  term = {
-    hl = "Normal:term,WinSeparator:WinSeparator",
-    sizes = { sp = 0.3, vsp = 0.2 },
-    float = {
-      relative = "editor",
-      row = 0.3,
-      col = 0.25,
-      width = 0.5,
-      height = 0.4,
-      border = "single",
-    },
-  },
+  --   term = {
+  --     hl = "Normal:term,WinSeparator:WinSeparator",
+  --     sizes = { sp = 0.3, vsp = 0.2 },
+  --     float = {
+  --       relative = "editor",
+  --       row = 0.3,
+  --       col = 0.25,
+  --       width = 0.5,
+  --       height = 0.4,
+  --       border = "single",
+  --     },
+  --   },
 }
 
 M.base46 = {

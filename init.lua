@@ -11,6 +11,8 @@ vim.keymap.set({ "n", "v" }, "<Down>", "")
 vim.keymap.set({ "n", "v" }, "<Up>", "")
 vim.keymap.set({ "n", "v" }, "<Right>", "")
 
+vim.keymap.set({ "n", "i" }, "<C-s>", ":w<CR>")
+
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system {
