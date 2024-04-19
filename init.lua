@@ -3,7 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- nvchad ui stuff
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+-- vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 
 vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "<Left>", "")
@@ -38,11 +38,17 @@ require("lazy").setup { import = "plugins" }
 -- dofile(vim.g.base46_cache .. "nvimtree")
 
 -- or if you want to load all base46 integrations at startup itself
-local integrations = require("nvconfig").base46.integrations
+-- local integrations = require("nvconfig").base46.integrations
+--
+-- for _, name in ipairs(integrations) do
+--   dofile(vim.g.base46_cache .. name)
+-- end
 
-for _, name in ipairs(integrations) do
-  dofile(vim.g.base46_cache .. name)
-end
+-- start lualine
+local lineopts = require "configs.lualine"
+require("lualine").setup(lineopts)
+local bufferline = require "bufferline"
+bufferline.setup {}
 
 vim.o.number = true
 -- require("nvim-tree.api").tree.open() -- open tree on start

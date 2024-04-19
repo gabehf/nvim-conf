@@ -3,7 +3,7 @@ local o = vim.o
 local g = vim.g
 
 -------------------------------------- globals -----------------------------------------
-g.toggle_theme_icon = "   "
+-- g.toggle_theme_icon = "   "
 
 -------------------------------------- options ------------------------------------------
 o.laststatus = 3 -- this line is necessary otherwise statusline breaks
@@ -67,3 +67,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank { timeout = 500 }
   end,
 })
+
+-- set colorscheme
+vim.cmd.colorscheme "catppuccin-mocha"

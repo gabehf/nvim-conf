@@ -12,7 +12,7 @@ return {
       require "configs.nvim-tree"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "devicons")
+      -- dofile(vim.g.base46_cache .. "devicons")
       require("nvim-web-devicons").setup(opts)
     end,
   },

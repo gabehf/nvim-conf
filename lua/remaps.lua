@@ -20,9 +20,14 @@ map("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp" })
 map("n", "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "[f]ile [g]rep" })
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Telescope Git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Telescope Git status" })
+map("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", { desc = "[th]eme switcher" })
 
 -- base46 maps
-map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "[th]emes" })
+map("n", "<leader>rt", function()
+  os.execute('rm -r "' .. vim.g.base46_cache .. '"')
+  require("base46").load_all_highlights()
+  vim.api.nvim_exec_autocmds("User", { pattern = "NvChadThemeReload" })
+end)
 
 -- nvim-tree mapping
 map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
@@ -33,17 +38,9 @@ map("n", "<leader>/", function()
 end, { desc = "Comment Toggle" })
 
 -- tabufline
-map("n", "<tab>", function()
-  require("nvchad.tabufline").next()
-end, { desc = "Buffer Goto next" })
-
-map("n", "<S-tab>", function()
-  require("nvchad.tabufline").prev()
-end, { desc = "Buffer Goto prev" })
-
-map("n", "<leader>x", function()
-  require("nvchad.tabufline").close_buffer()
-end, { desc = "Buffer Close" })
+map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Buffer Goto next" })
+map("n", "<S-tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer Goto Prev" })
+map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Buffer Close" })
 
 -- lsp
 map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Lsp floating diagnostics" })

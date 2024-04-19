@@ -28,6 +28,7 @@ return {
       yaml = { { "prettierd", "prettier" } },
       markdown = { { "prettierd", "prettier" } },
       ["markdown.mdx"] = { { "prettierd", "prettier" } },
+      ruby = { { "prettierd", "prettier" } },
     },
   },
   config = function(_, opts)
