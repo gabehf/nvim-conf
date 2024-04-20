@@ -9,7 +9,7 @@ local g = vim.g
 o.laststatus = 3 -- this line is necessary otherwise statusline breaks
 o.showmode = false
 
-o.clipboard = "unnamedplus"
+o.clipboard = "unnamed"
 o.cursorline = true
 -- o.cursorlineopt = "number"
 

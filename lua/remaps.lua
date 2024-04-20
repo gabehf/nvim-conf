@@ -9,6 +9,7 @@ map("n", "<C-j>", "<C-w>j", { desc = "Switch Window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "Switch Window up" })
 map("n", "<leader>qq", ":wa<CR>:qa<CR>")
 map("i", "jk", "<Esc>")
+map("n", "<leader>b", "<C-6>")
 
 -- telescope keybinds
 local builtin = require "telescope.builtin"
@@ -31,6 +32,9 @@ end)
 
 -- nvim-tree mapping
 map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
+
+-- twilight
+map("n", "<leader>tw", "<cmd>Twilight<CR>")
 
 -- comment
 map("n", "<leader>/", function()
