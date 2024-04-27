@@ -13,6 +13,8 @@ vim.keymap.set({ "n", "v" }, "<Right>", "")
 
 vim.keymap.set({ "n", "i" }, "<C-s>", ":w<CR>")
 
+vim.filetype.add { extension = { templ = "templ" } }
+
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system {
@@ -55,4 +57,5 @@ vim.o.number = true
 -- vim.schedule(function()
 require "options"
 require "remaps"
+require "autocmd"
 -- end)

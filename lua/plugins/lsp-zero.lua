@@ -28,6 +28,10 @@ return {
           "clangd",
           "lua_ls",
           "pyright",
+          "html",
+          "htmx",
+          "emmet_ls",
+          "templ",
         },
         handlers = {
           function(server_name)
@@ -38,6 +42,36 @@ return {
                   diagnostics = { globals = { "vim" } },
                 },
               },
+            }
+            require("lspconfig").emmet_ls.setup {
+              -- on_attach = on_attach,
+              capabilities = capabilities,
+              filetypes = {
+                "css",
+                "eruby",
+                "html",
+                "javascript",
+                "javascriptreact",
+                "less",
+                "sass",
+                "scss",
+                "svelte",
+                "pug",
+                "typescriptreact",
+                "vue",
+                "templ",
+              },
+              init_options = {
+                html = {
+                  options = {
+                    -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                    ["bem.enabled"] = true,
+                  },
+                },
+              },
+            }
+            require("lspconfig").htmx.setup {
+              filetypes = { "html", "templ" },
             }
           end,
         },

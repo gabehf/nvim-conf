@@ -69,4 +69,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- set colorscheme
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "cyberdream"

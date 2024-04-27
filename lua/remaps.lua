@@ -10,6 +10,7 @@ map("n", "<C-k>", "<C-w>k", { desc = "Switch Window up" })
 map("n", "<leader>qq", ":wa<CR>:qa<CR>")
 map("i", "jk", "<Esc>")
 map("n", "<leader>b", "<C-6>")
+map("n", "<leader>m", ":!")
 
 -- telescope keybinds
 local builtin = require "telescope.builtin"

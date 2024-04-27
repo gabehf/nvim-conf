@@ -13,7 +13,7 @@ return {
       bash = { "shfmt" },
       sh = { "shfmt" },
       lua = { "stylua" },
-      go = { "goimports", "gofumpt", "goimports-reviser" },
+      go = { "goimports", "gofumpt" },
       javascript = { { "prettierd", "prettier" } },
       typescript = { { "prettierd", "prettier" } },
       javascriptreact = { { "prettierd", "prettier" } },

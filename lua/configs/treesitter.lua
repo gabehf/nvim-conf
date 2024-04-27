@@ -16,6 +16,7 @@ return {
     "css",
     "astro",
     "bash",
+    "templ",
   },
   -- highlight = {
   --   enable = true,
